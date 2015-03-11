@@ -1,0 +1,9 @@
+avahi.pc:
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/x86_64-linux-gnu$
+
+Name: avahi
+Description: The avahi library
+Version: 0.6.31
+Libs: -L${libdir} -lavahi-glib -lavahi-core -lavahi-common -lavahi-client -lavahi-qt4
