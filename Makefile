@@ -1,5 +1,5 @@
 CC=gcc
-PKG=pkg-config --cflags --libs avahi64
+PKG=pkg-config --cflags --libs avahi
 FILE1 = server.c
 FILE2 = client.c
 FILE3 = browse.c
@@ -10,6 +10,7 @@ OUT_EXE3 = browse
 OUT_EXE4 = publish
 
 build:
+	apt-get install avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan
 	cp avahi.pc /usr/lib/pkgconfig
 	$(CC) -o $(OUT_EXE1) $(FILE1)
 	$(CC) -o $(OUT_EXE2) $(FILE2)
@@ -20,4 +21,3 @@ clean:
 	rm -f *.o core
 
 rebuild: clean build
-
