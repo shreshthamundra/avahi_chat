@@ -1,6 +1,5 @@
 CC=gcc
-PKG=pkg-config --cflags --libs avahi32
-PKG=pkg-config --cflags --libs avahi64
+PKG=pkg-config --cflags --libs avahi
 FILE1 = server.c
 FILE2 = client.c
 FILE3 = browse.c
@@ -10,6 +9,7 @@ OUT_EXE2 = client
 OUT_EXE3 = browse
 OUT_EXE4 = publish
 b32: $(FILES)
+	cp avahi32.pc avahi32.pc
 	$(CC) -o $(OUT_EXE1) $(FILE1) `$(PKG)`
 	$(CC) -o $(OUT_EXE2) $(FILE2) `$(PKG)`
 	$(CC) -o $(OUT_EXE3) $(FILE3) `$(PKG)`
@@ -25,4 +25,3 @@ clean:
 	rm -f *.o core
 
 rebuild: clean build
-
